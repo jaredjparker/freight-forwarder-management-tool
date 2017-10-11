@@ -5,7 +5,7 @@ import logo from './logo.svg';
 class Login extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="Login">
         <img src={logo} alt="" />
         <a href={process.env.REACT_APP_LOGIN}><button>Login</button></a>
       </div>
