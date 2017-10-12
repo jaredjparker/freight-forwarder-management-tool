@@ -11,11 +11,11 @@ module.exports = {
             .catch(() => res.status(500).send());
     },
 
-    getFlights: (req, res, next) => {
+    getAirlines: (req, res, next) => {
         const db = req.app.get('db');
 
-        db.find_all_flights()
-            .then((flights) => res.status(200).send(flights))
+        db.find_all_airlines()
+            .then((airlines) => res.status(200).send(airlines))
             .catch(() => res.status(500).send());
     }
 };  

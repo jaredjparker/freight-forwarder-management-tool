@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import './AirlineMgmt.css';
-import { getAllFlights } from './../../ducks/users';
+import { getAllAirlines } from './../../ducks/users';
 import { connect } from 'react-redux';
-// import { Link } from 'react-router-dom';
 
 class AirlineMgmt extends Component {
   constructor(props) {
@@ -14,29 +13,40 @@ class AirlineMgmt extends Component {
   }
 
   componentDidMount() {
-    this.props.getAllFlights()
+    this.props.getAllAirlines()
   }
 
   render() {
-    const flights = this.props.flights;
+    // const airlines = JSON.stringify(this.props.airlines)
+    // console.log('here are all of the airlines', airlines);
+    console.log('Object passed through props', this.props.airlines)
+
+    const airlineList = this.props.airlines.map((airline) => {
+      return (
+        <div className='airrec' key={airline.id}>
+          <p>{airline.airline_name}</p>
+          <p>{airline.iata_airline_code}</p>
+          <p>{airline.airline_type}</p>
+        </div>
+      )
+    });
+
     return (
       <div className="App">
-        <h1>Airline Management</h1>
-        <h4>
-          Stuff
-        </h4>
+        <h2>Airline Management</h2>
+        <button>New</button>
         <div><a href='http://localhost:3005/auth/logout'><button>Log out</button></a>
         </div>
+        {airlineList}
       </div>
     );
   }
 }
 
 function mapStateToProps(state) {
-  console.log('state from airlineMgmt' + state)
   return {
-    flights: state.flights
+    airlines: state.airlines
   }
 }
 
-export default connect(mapStateToProps, { getAllFlights })(AirlineMgmt);
+export default connect(mapStateToProps, { getAllAirlines })(AirlineMgmt);
