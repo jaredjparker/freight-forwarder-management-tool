@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './Dashboard.css';
-import axios from 'axios';
-import {getUserInfo} from './../../ducks/users';
-import {connect} from 'react-redux';
+import { getUserInfo } from './../../ducks/users';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 class Dashboard extends Component {
   constructor(props) {
@@ -15,28 +15,31 @@ class Dashboard extends Component {
 
   componentDidMount() {
     this.props.getUserInfo()
-    console.log(this.props.user);
   }
 
   render() {
     const user = this.props.user;
     return (
       <div className="App">
-        <p>Dashboard</p>
-
-        <p>{user.id ? user.user_name : null}</p>
-        <p>{user.id ? user.email : null}</p>
-        <p>{user.id ? user.auth_id : null}</p>
+        <h1>Dashboard</h1>
+        <div><Link to='/airlinemgmt'><button>Airline Management</button></Link></div>
+        <h4>
+          <p>Username: {user.id ? user.user_name : null}</p>
+          <p>Email: {user.id ? user.email : null}</p>
+          <p>ID: {user.id ? user.auth_id : null}</p>
+        </h4>
+        <div><a href='http://localhost:3005/auth/logout'><button>Log out</button></a>
+        </div>
       </div>
     );
   }
 }
 
 function mapStateToProps(state) {
-  console.log('state from private' + state)
+  console.log('state from dashboard' + state)
   return {
     user: state.user
   }
 }
 
-export default connect(mapStateToProps, {getUserInfo})(Dashboard);
+export default connect(mapStateToProps, { getUserInfo })(Dashboard);

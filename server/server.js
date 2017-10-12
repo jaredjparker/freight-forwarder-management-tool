@@ -25,6 +25,9 @@ massive(process.env.CONNECTION_STRING).then(db => {
 // This end point is currently connected to the test table for testing back to db connection.
 app.post( '/api/users', auth_controllers.createTest);
 
+// End point to make sure I can obtain all flight data.
+app.get('/api/flights', auth_controllers.getFlights);
+
 passport.use(new Auth0Strategy({
     domain: process.env.AUTH_DOMAIN,
     clientID: process.env.AUTH_CLIENT_ID,
@@ -59,10 +62,10 @@ app.get('/auth/me', (req, res) => {
     return res.status(200).send(req.user);
 })
 
-// app.get('/auth/logout', (req, res) => {
-//     req.logOut();
-//     res.redirect(302, 'http://localhost:3000/#/');
-// })
+app.get('/auth/logout', (req, res) => {
+    req.logOut();
+    res.redirect(302, 'http://localhost:3000/#/');
+})
 
 passport.serializeUser(function (id, done) {
     done(null, id);

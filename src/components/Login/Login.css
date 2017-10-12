@@ -1,28 +1,59 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+
 .Login {
-  text-align: center;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom right, tomato, orangered);
 }
 
-.Login-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.logbox {
+  width: 500px;
+  height: 500 px;
+  border: 2px solid white;
+  border-radius: 5px;
+  background: linear-gradient(to bottom right, orangered, tomato);
 }
 
-.Login-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+.btn {
+  background: linear-gradient(to bottom right, tomato,orangered);
   color: white;
+  border-radius: 5px;
+  margin: 22px;
+  height: 51px;
+  width: 88px;
+  font-size: 1rem;
+  font-family: 'Roboto', sans-serif;
+  border: white;
 }
 
-.Login-title {
-  font-size: 1.5em;
+.btn span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
 }
 
-.Login-intro {
-  font-size: large;
+.btn span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
 }
 
-@keyframes Login-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.btn:hover span {
+  padding-right: 25px;
 }
+
+.btn:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+@media(max-width: 900px) {
+  }
