@@ -67,6 +67,9 @@ app.get('/auth/logout', (req, res) => {
 // End point to make sure I can obtain all flight data.
 app.get('/api/airlines', auth_controllers.getAirlines);
 
+// End point to obtain data for one airline.
+app.get('/api/airlines/:id', auth_controllers.getOneAirline);
+
 passport.serializeUser(function (id, done) {
     done(null, id);
 })

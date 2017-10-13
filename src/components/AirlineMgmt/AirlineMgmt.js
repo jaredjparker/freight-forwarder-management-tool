@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import './AirlineMgmt.css';
-import { getAllAirlines } from './../../ducks/users';
+import { getAllAirlines, getOneAirline } from './../../ducks/users';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import logo from './logo.svg';
 
 class AirlineMgmt extends Component {
   constructor(props) {
@@ -13,30 +15,33 @@ class AirlineMgmt extends Component {
   }
 
   componentDidMount() {
-    this.props.getAllAirlines()
+    this.props.getAllAirlines();
   }
 
   render() {
-    // const airlines = JSON.stringify(this.props.airlines)
-    // console.log('here are all of the airlines', airlines);
-    console.log('Object passed through props', this.props.airlines)
-
-    const airlineList = this.props.airlines.map((airline) => {
+    const airlines = this.props.airlines;
+    const airlineList = airlines.map((airline, i) => {
       return (
-        <div className='airrec' key={airline.id}>
-          <p>{airline.airline_name}</p>
-          <p>{airline.iata_airline_code}</p>
-          <p>{airline.airline_type}</p>
-        </div>
+        <Link to='/airlinerecord'>
+          <div className='airrec' key={i} onClick={() => console.log('Div onClick', airlines[i].airline_id)}>
+            <p >{airline.airline_id}</p>
+            <p>{airline.airline_name}</p>
+            <p>{airline.iata_airline_code}</p>
+            <p>{airline.airline_type}</p>
+          </div>
+        </Link>
       )
     });
 
     return (
-      <div className="App">
-        <h2>Airline Management</h2>
-        <button>New</button>
-        <div><a href='http://localhost:3005/auth/logout'><button>Log out</button></a>
+      <div className="airlinemgmt">
+        <div className='airheader'>
+          <img src={logo} alt="" />
+          <h2>Airline Management</h2>
+          <a href='http://localhost:3005/auth/logout'><button className='btn'><span>Log out</span></button></a>
         </div>
+        <button className='btn' onClick={() => this.props.getOneAirline(4)}><span>Invoke</span></button>
+        <button className='btn' onClick={() => console.log('airlineSingular props', this.props.airlineSingular)}><span>Console</span></button>
         {airlineList}
       </div>
     );
@@ -45,8 +50,11 @@ class AirlineMgmt extends Component {
 
 function mapStateToProps(state) {
   return {
-    airlines: state.airlines
+    airlines: state.airlines,
+    airlineSingular: state.airlineSingular
   }
 }
 
-export default connect(mapStateToProps, { getAllAirlines })(AirlineMgmt);
+const mapDispatchToProps = { getAllAirlines, getOneAirline }
+
+export default connect(mapStateToProps, mapDispatchToProps)(AirlineMgmt);

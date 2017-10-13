@@ -17,5 +17,14 @@ module.exports = {
         db.find_all_airlines()
             .then((airlines) => res.status(200).send(airlines))
             .catch(() => res.status(500).send());
+    },
+
+    getOneAirline: (req, res, next) => {
+        const db = req.app.get('db');
+        const airlineId = req.params.id;
+
+        db.find_airline(airlineId)
+            .then((airline) => res.status(200).send(airline[0]))
+            .catch(() => res.status(500).send());
     }
 };  

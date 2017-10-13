@@ -3,13 +3,15 @@ import axios from 'axios';
 //INITIAL STATE
 const initialState = {
     user: {},
-    airlines: [{}]
+    airlines: [{}],
+    airlineSingular: {} 
 }
 
 //CONSTANTS THAT REPRESENT ACTIONS
 const FULFILLED = '_FULFILLED';
 const GET_USER_INFO = 'GET_USER_INFO';
 const GET_ALL_AIRLINES = 'GET_ALL_AIRLINES';
+const GET_ONE_AIRLINE = 'GET_ONE_AIRLINE';
 
 //ACTION CREATORS
 export function getUserInfo() {
@@ -34,6 +36,19 @@ export function getAllAirlines() {
     }
 }
 
+export function getOneAirline(airlineId) {
+    console.log('getOne fired');
+    const oneAirline = axios.get('/api/airlines/' + airlineId)
+    .then (res => {
+        console.log(res);
+        return res.data
+    })
+    return {
+        type: GET_ONE_AIRLINE,
+        payload: oneAirline
+    }
+}
+
 //REDUCER FUNCTION
 export default function reducer(state = initialState, action) {
     switch(action.type) {
@@ -42,6 +57,9 @@ export default function reducer(state = initialState, action) {
 
             case GET_ALL_AIRLINES + FULFILLED:
                 return Object.assign( {}, state, {airlines: action.payload});
+
+            case GET_ONE_AIRLINE + FULFILLED:
+                return Object.assign( {}, state, {airlineSingular: action.payload});
 
         default: return state;
 
