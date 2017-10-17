@@ -70,6 +70,9 @@ app.get('/api/airlines', auth_controllers.getAirlines);
 // End point to obtain data for one airline.
 app.get('/api/airlines/:id', auth_controllers.getOneAirline);
 
+// End point to create new airline record.
+app.post('/api/airlines', auth_controllers.createAirline);
+
 passport.serializeUser(function (id, done) {
     done(null, id);
 })

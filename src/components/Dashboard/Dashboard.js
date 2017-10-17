@@ -28,13 +28,16 @@ class Dashboard extends Component {
           <h1>Dashboard</h1>
           <a href='http://localhost:3005/auth/logout'><button className='btn'><span>Log out</span></button></a>
         </div>
-        <div><Link to='/airlinemgmt'><button className='btn'><span>Airline Management</span></button></Link></div>
-        <div className='data'>
-        <h4>
-          <p>Username: {user.id ? user.user_name : null}</p>
-          <p>Email: {user.id ? user.email : null}</p>
-          <p>ID: {user.id ? user.auth_id : null}</p>
-        </h4>
+        <div className='selectbar'>
+          <div className='selectbox'>
+            <Link to='/airlinemgmt'><button className='btn'><span>Airline Management</span></button></Link>
+            <button className='btn'><span>Flight Management</span></button>
+          </div>
+          <div className='data'>
+            <p>Username: {user.id ? user.user_name : null}</p>
+            <p>Email: {user.id ? user.email : null}</p>
+            <p>ID: {user.id ? user.auth_id : null}</p>
+          </div>
         </div>
       </div>
     );

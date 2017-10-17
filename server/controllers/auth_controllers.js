@@ -26,5 +26,14 @@ module.exports = {
         db.find_airline(airlineId)
             .then((airline) => res.status(200).send(airline[0]))
             .catch(() => res.status(500).send());
+    },
+
+    createAirline: (req, res, next) => {
+        const db = req.app.get('db');
+        const {air_freight, fuel_surcharge, security_surcharge, screening, iata_airline_code, airline_name, airline_type} = req.body;
+
+        db.add_airline_record([air_freight, fuel_surcharge, security_surcharge, screening, iata_airline_code, airline_name, airline_type])
+            .then(() => res.status(200).send())
+            .catch(() => res.status(500).send());
     }
 };  

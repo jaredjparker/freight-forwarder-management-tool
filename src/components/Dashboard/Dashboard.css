@@ -21,18 +21,37 @@
     padding: 16px;
 }
 
+.data {
+  width: 67vw;
+  /* height: 8vh; */
+  border: 3px solid white;
+  border-radius: 2px;
+  margin: 7px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: left;
+  padding-left: 12px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.selectbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.selectbox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: left;
+}
+
 h1 {
     color: white;
     font-family: 'Roboto', sans-serif;
-}
-
-.data {
-    color: white;
-    font-family: 'Roboto', sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-content: flex-start;
 }
 
 .btn {
