@@ -34,8 +34,10 @@ class AirlineRecord extends Component {
                         <p>Fuel Surcharge: {airlineSingular.fuel_surcharge}</p>
                         <p>Security Surcharge: {airlineSingular.security_surcharge}</p>
                         <p>Screening: {airlineSingular.screening}</p>
-                        <button className='btn'><span>Edit</span></button>
-                        <button className='btn'><span>Delete</span></button>
+                        <Link to='/airlineupdate'>
+                            <button className='btn'><span>Edit Airline</span></button>
+                        </Link>
+                        <button className='btn'><span>Delete Airline</span></button>
                     </div>
                 </div>
             </div>

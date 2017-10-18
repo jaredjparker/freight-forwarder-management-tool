@@ -14,6 +14,16 @@ const initialState = {
         iata_airline_code: 0,
         airline_name: '',
         airline_type: ''
+    },
+    updateAirline: {
+        air_freight: 0,
+        fuel_surcharge: 0,
+        security_surcharge: 0,
+        screening: 0,
+        iata_airline_code: 0,
+        airline_name: '',
+        airline_type: '',
+        airline_id: 0
     }
 };
 

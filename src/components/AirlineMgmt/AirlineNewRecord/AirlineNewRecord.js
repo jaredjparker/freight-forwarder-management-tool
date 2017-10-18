@@ -38,7 +38,6 @@ class AirlineNewRecord extends Component {
         this.props.wizard.airline_name = this.state.airlineName;
         this.props.wizard.airline_type = this.state.airlineType;
 
-        resetWizard();
         createAirline(this.props.wizard);
     }
 
