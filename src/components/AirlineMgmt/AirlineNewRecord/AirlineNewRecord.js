@@ -3,6 +3,7 @@ import './AirlineNewRecord.css';
 import { connect } from 'react-redux'
 import { updateWizard, createAirline, resetWizard } from './../../../ducks/users';
 import logo from './logo.svg';
+import { Link } from 'react-router-dom';
 
 class AirlineNewRecord extends Component {
     constructor(props) {
@@ -37,6 +38,7 @@ class AirlineNewRecord extends Component {
         this.props.wizard.airline_name = this.state.airlineName;
         this.props.wizard.airline_type = this.state.airlineType;
 
+        resetWizard();
         createAirline(this.props.wizard);
     }
 
@@ -50,7 +52,12 @@ class AirlineNewRecord extends Component {
                     <a href='http://localhost:3005/auth/logout'><button className='btn'><span>Log out</span></button></a>
                 </div>
                 <div className='barbox'>
-                    <button className='btn' onClick={this.finishWizard}>Add Airline</button>
+                    <div className='selectbox'>
+                        <Link to='/airlinemgmt'>
+                            <button className='btn'><span>Airline Management</span></button>
+                        </Link>
+                        <button className='btn' onClick={this.finishWizard}><span>Add Airline</span></button>
+                    </div>
                     <div className='recborder'>
                         <form>
                             <p className='formdisplay'>Airline: <input type="text" value={airlineName} onChange={(e) => this.handleChange('airlineName', e.target.value)} /></p>

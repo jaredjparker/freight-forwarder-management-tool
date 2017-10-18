@@ -35,5 +35,14 @@ module.exports = {
         db.add_airline_record([air_freight, fuel_surcharge, security_surcharge, screening, iata_airline_code, airline_name, airline_type])
             .then(() => res.status(200).send())
             .catch(() => res.status(500).send());
+    },
+
+    updateAirline: (req, res, next) => {
+        const db = req.app.get('db');
+        const {air_freight, fuel_surcharge, security_surcharge, screening, iata_airline_code, airline_name, airline_type, airline_id} = req.body;
+
+        db.update_airline_record([air_freight, fuel_surcharge, security_surcharge, screening, iata_airline_code, airline_name, airline_type, airline_id])
+            .then(() => res.status(200).send())
+            .catch(() => res.status(500).send());
     }
 };  

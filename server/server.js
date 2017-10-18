@@ -73,6 +73,9 @@ app.get('/api/airlines/:id', auth_controllers.getOneAirline);
 // End point to create new airline record.
 app.post('/api/airlines', auth_controllers.createAirline);
 
+// End point to update airline record.
+app.put('/api/airlines', auth_controllers.updateAirline);
+
 passport.serializeUser(function (id, done) {
     done(null, id);
 })

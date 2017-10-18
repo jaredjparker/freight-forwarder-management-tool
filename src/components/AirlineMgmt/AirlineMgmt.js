@@ -39,9 +39,14 @@ class AirlineMgmt extends Component {
           <h2>Airline Management</h2>
           <a href='http://localhost:3005/auth/logout'><button className='btn'><span>Log out</span></button></a>
         </div>
-        <Link to='/airlinenewrecord'>
-          <button className='btn'><span>New Airline</span></button>
-        </Link>
+        <div className='sbox'>
+          <Link to='/dashboard'>
+            <button className='btn'><span>Dashboard</span></button>
+          </Link>
+          <Link to='/airlinenewrecord'>
+            <button className='btn'><span>New Airline</span></button>
+          </Link>
+        </div>
         {airlineList}
       </div>
     );

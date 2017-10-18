@@ -44,6 +44,14 @@ h1 {
     align-content: flex-start;
 }
 
+.sbox {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: left;
+  border: 3px solid white;
+}
+
 .btn {
   background: linear-gradient(to bottom right, tomato,orangered);
   color: white;

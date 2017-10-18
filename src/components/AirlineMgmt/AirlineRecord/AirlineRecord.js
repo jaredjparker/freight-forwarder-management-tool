@@ -25,6 +25,7 @@ class AirlineRecord extends Component {
                 </div>
                 <div className='barbox'>
                     <Link to='/airlinemgmt'><button className='btn'><span>Airline Management</span></button></Link>
+                    <Link to='/airlinemgmt'><button className='btn'><span>Cancel</span></button></Link>
                     <div className='recborder'>
                         <p>Airline Name: {airlineSingular.airline_name}</p>
                         <p>Airline Code: {airlineSingular.iata_airline_code}</p>
@@ -33,6 +34,8 @@ class AirlineRecord extends Component {
                         <p>Fuel Surcharge: {airlineSingular.fuel_surcharge}</p>
                         <p>Security Surcharge: {airlineSingular.security_surcharge}</p>
                         <p>Screening: {airlineSingular.screening}</p>
+                        <button className='btn'><span>Edit</span></button>
+                        <button className='btn'><span>Delete</span></button>
                     </div>
                 </div>
             </div>
