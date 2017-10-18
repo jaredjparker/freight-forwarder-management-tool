@@ -6,17 +6,17 @@ import {connect} from 'react-redux'
 class AirlineUpdate extends Component {
     constructor(props) {
         super(props);
-        const {updateAirline} = this.props;
+        const {airlineSingular} = this.props;
 
         this.state = {
-            airFreight: updateAirline.air_freight,
-            fuelSurcharge: updateAirline.fuel_surcharge,
-            securitySurcharge: updateAirline.security_surcharge,
-            screening: updateAirline.screening,
-            iataAirlineCode: updateAirline.iata_airline_code,
-            airlineName: updateAirline.airline_name,
-            airlineType: updateAirline.airline_type,
-            airlineId: updateAirline.airline_id
+            airFreight: airlineSingular.air_freight,
+            fuelSurcharge: airlineSingular.fuel_surcharge,
+            securitySurcharge: airlineSingular.security_surcharge,
+            screening: airlineSingular.screening,
+            iataAirlineCode: airlineSingular.iata_airline_code,
+            airlineName: airlineSingular.airline_name,
+            airlineType: airlineSingular.airline_type,
+            airlineId: airlineSingular.airline_id
         }
     }
 
@@ -28,7 +28,7 @@ class AirlineUpdate extends Component {
                     <p>Airline Update View</p>
                     <a href='http://localhost:3005/auth/logout'><button className='btn'><span>Log out</span></button></a>
                 </div>
-                <div className='recborder'>
+                <div className='recborder'> 
                     <form>
                         <p className='formdisplay'>Airline: <input type="text" defaultValue={this.state.airlineName} name="airline_name" /></p>
                         <p className='formdisplay'>IATA Airline Code: <input type="text" defaultValue={this.state.iataAirlineCode}name="iata_airline_code" /></p>
@@ -46,7 +46,7 @@ class AirlineUpdate extends Component {
 
 function mapStateToProps(state) {
     return {
-        updateAirline: state.updateAirline
+        airlineSingular: state.airlineSingular
     }
 }
 export default connect(mapStateToProps)(AirlineUpdate);
