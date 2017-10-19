@@ -3,6 +3,7 @@ import './AirlineRecord.css';
 import { connect } from 'react-redux'
 import logo from './logo.svg';
 import { Link } from 'react-router-dom';
+import { deleteAirline } from './../../../ducks/users';
 
 class AirlineRecord extends Component {
     constructor(props) {
@@ -24,8 +25,10 @@ class AirlineRecord extends Component {
                     <a href='http://localhost:3005/auth/logout'><button className='btn'><span>Log out</span></button></a>
                 </div>
                 <div className='barbox'>
-                    <Link to='/airlinemgmt'><button className='btn'><span>Airline Management</span></button></Link>
-                    <Link to='/airlinemgmt'><button className='btn'><span>Cancel</span></button></Link>
+                    <div className='tocolumn'>
+                        <Link to='/airlinemgmt'><button className='btn'><span>Airline Management</span></button></Link>
+                        <Link to='/airlinemgmt'><button className='btn'><span>Cancel</span></button></Link>
+                    </div>
                     <div className='recborder'>
                         <p>Airline Name: {airlineSingular.airline_name}</p>
                         <p>Airline Code: {airlineSingular.iata_airline_code}</p>
@@ -37,7 +40,7 @@ class AirlineRecord extends Component {
                         <Link to='/airlineupdate'>
                             <button className='btn'><span>Edit Airline</span></button>
                         </Link>
-                        <button className='btn'><span>Delete Airline</span></button>
+                        <button className='btn' onClick={() => this.props.deleteAirline(airlineSingular.airline_id)}><span>Delete Airline</span></button>
                     </div>
                 </div>
             </div>
@@ -50,4 +53,4 @@ function mapStateToProps(state) {
         airlineSingular: state.airlineSingular
     }
 }
-export default connect(mapStateToProps)(AirlineRecord);
+export default connect(mapStateToProps, { deleteAirline })(AirlineRecord);

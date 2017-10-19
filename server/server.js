@@ -76,6 +76,9 @@ app.post('/api/airlines', auth_controllers.createAirline);
 // End point to update airline record.
 app.put('/api/airlines', auth_controllers.updateAirline);
 
+// End point to delete airline record.
+app.delete('/api/airlines/:id', auth_controllers.deleteAirline);
+
 passport.serializeUser(function (id, done) {
     done(null, id);
 })

@@ -14,16 +14,6 @@ const initialState = {
         iata_airline_code: 0,
         airline_name: '',
         airline_type: ''
-    },
-    updateAirline: {
-        air_freight: 0,
-        fuel_surcharge: 0,
-        security_surcharge: 0,
-        screening: 0,
-        iata_airline_code: 0,
-        airline_name: '',
-        airline_type: '',
-        airline_id: 0
     }
 };
 
@@ -35,6 +25,8 @@ const GET_ONE_AIRLINE = 'GET_ONE_AIRLINE';
 const UPDATE_WIZARD = "UPDATE_WIZARD";
 const RESET_WIZARD = "RESET_WIZARD";
 const CREATE_AIRLINE = "CREATE_AIRLINE";
+const UPDATE_AIRLINE = 'UPDATE_AIRLINE';
+const DELETE_AIRLINE = 'DELETE_AIRLINE';
 
 //ACTION CREATORS
 export function getUserInfo() {
@@ -86,6 +78,18 @@ export function createAirline(obj) {
     };
 }
 
+export function updateAirline(obj) {
+    console.log('Update Airline Fired')
+    const updatedAirline = axios.put('/api/airlines', obj).then(response => {
+        return response.data;
+    });
+
+    return {
+        type: UPDATE_AIRLINE,
+        payload: updatedAirline
+    }
+}
+
 export function getOneAirline(airlineId) {
     console.log('getOne fired');
     const oneAirline = axios.get('/api/airlines/' + airlineId)
@@ -99,6 +103,18 @@ export function getOneAirline(airlineId) {
     }
 }
 
+export function deleteAirline(airlineId) {
+    console.log('Delete Airline fired');
+    const deleteAirline = axios.delete('/api/airlines/' + airlineId)
+        .then(res => {
+            return res.data
+        })
+    return {
+        type: DELETE_AIRLINE,
+        payload: deleteAirline
+    }
+}
+
 //REDUCER FUNCTION
 export default function reducer(state = initialState, action) {
     switch (action.type) {
@@ -109,6 +125,8 @@ export default function reducer(state = initialState, action) {
             return Object.assign({}, state, { airlines: action.payload });
 
         case GET_ONE_AIRLINE + FULFILLED:
+            return Object.assign({}, state, { airlineSingular: action.payload });
+        case DELETE_AIRLINE + FULFILLED:
             return Object.assign({}, state, { airlineSingular: action.payload });
 
         case UPDATE_WIZARD: {
@@ -129,6 +147,9 @@ export default function reducer(state = initialState, action) {
 
         case CREATE_AIRLINE + FULFILLED:
             return Object.assign({}, state, { newAirline: action.payload });
+
+        case UPDATE_AIRLINE + FULFILLED:
+            return Object.assign({}, state, { airlineSingular: action.payload });
 
         default: return state;
 
