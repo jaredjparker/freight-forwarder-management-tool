@@ -7,6 +7,7 @@ import AirlineMgmt from './components/AirlineMgmt/AirlineMgmt';
 import AirlineRecord from './components/AirlineMgmt/AirlineRecord/AirlineRecord';
 import AirlineNewRecord from './components/AirlineMgmt/AirlineNewRecord/AirlineNewRecord';
 import AirlineUpdate from './components/AirlineMgmt/AirlineUpdate/AirlineUpdate';
+import ProfitComparison from './components/ProfitComparison/ProfitComparison';
 
 
 export default (
@@ -18,6 +19,7 @@ export default (
             <Route component={AirlineRecord} path='/airlinerecord' />
             <Route component={AirlineNewRecord} path='/airlinenewrecord' />
             <Route component={AirlineUpdate} path='/airlineupdate' />
+            <Route component={ProfitComparison} path='/profitcomparison' />
         </div>
     </HashRouter>
 )

@@ -32,6 +32,9 @@ class Dashboard extends Component {
           <div className='selectbox'>
             <Link to='/airlinemgmt'><button className='btn'><span>Airline Management</span></button></Link>
             <button className='btn'><span>Flight Management</span></button>
+            <Link to='/profitcomparison'>
+              <button className='btn'><span>Profit Comparison</span></button>
+            </Link>
           </div>
           <div className='data'>
             <p>Username: {user.id ? user.user_name : null}</p>

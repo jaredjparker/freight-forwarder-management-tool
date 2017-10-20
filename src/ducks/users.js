@@ -94,7 +94,6 @@ export function getOneAirline(airlineId) {
     console.log('getOne fired');
     const oneAirline = axios.get('/api/airlines/' + airlineId)
         .then(res => {
-            console.log(res);
             return res.data
         })
     return {
