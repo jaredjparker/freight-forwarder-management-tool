@@ -31,7 +31,9 @@ class Dashboard extends Component {
         <div className='selectbar'>
           <div className='selectbox'>
             <Link to='/airlinemgmt'><button className='btn'><span>Airline Management</span></button></Link>
-            <button className='btn'><span>Customer Management</span></button>
+            <Link to='/customermgmt'>
+              <button className='btn'><span>Customer Management</span></button>
+            </Link>
             <Link to='/profitcomparison'>
               <button className='btn'><span>Profit Comparison</span></button>
             </Link>
