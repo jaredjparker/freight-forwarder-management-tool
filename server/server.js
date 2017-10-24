@@ -6,6 +6,7 @@ const massive = require('massive');
 const passport = require('passport');
 const Auth0Strategy = require('passport-auth0');
 const auth_controllers = require('./controllers/auth_controllers');
+const customer_controllers = require('./controllers/customer_controllers');
 
 const app = express();
 
@@ -65,20 +66,15 @@ app.get('/auth/logout', (req, res) => {
     res.redirect(302, 'http://localhost:3000/#/');
 })
 
-// End point to make sure I can obtain all flight data.
+// Endpoints for airline management.
 app.get('/api/airlines', auth_controllers.getAirlines);
-
-// End point to obtain data for one airline.
 app.get('/api/airlines/:id', auth_controllers.getOneAirline);
-
-// End point to create new airline record.
 app.post('/api/airlines', auth_controllers.createAirline);
-
-// End point to update airline record.
 app.put('/api/airlines', auth_controllers.updateAirline);
-
-// End point to delete airline record.
 app.delete('/api/airlines/:id', auth_controllers.deleteAirline);
+
+// Endpoints for Customer Management.
+app.get('/api/customers', customer_controllers.getCustomers);
 
 passport.serializeUser(function (id, done) {
     done(null, id);
