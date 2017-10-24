@@ -75,6 +75,7 @@ app.delete('/api/airlines/:id', auth_controllers.deleteAirline);
 
 // Endpoints for Customer Management.
 app.get('/api/customers', customer_controllers.getCustomers);
+app.get('/api/customers/:id', customer_controllers.getOneCustomer);
 
 passport.serializeUser(function (id, done) {
     done(null, id);
