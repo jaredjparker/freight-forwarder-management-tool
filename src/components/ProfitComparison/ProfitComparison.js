@@ -1,28 +1,53 @@
 import React, { Component } from 'react';
 import './ProfitComparison.css';
 import logo from './../AirlineMgmt/logo.svg';
-import { Bar } from 'react-chartjs-2';
+import { connect } from 'react-redux';
+import { getAllAirlines } from './../../ducks/users';
+import { Link } from 'react-router-dom';
+import Chart from './Chart/Chart';
 
 class ProfitComparison extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            data: {
-                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-                datasets: [
-                    {
-                        label: 'My First dataset',
-                        backgroundColor: '#ffffff',
-                        borderColor: 'rgba(255,99,132,1)',
-                        borderWidth: 1,
-                        hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-                        hoverBorderColor: 'rgba(255,99,132,1)',
-                        data: [65, 59, 80, 81, 56, 55, 40]
-                    }
-                ]
-            }
+            shipmentWeight: 0,
+            profit: [],
+            airlineNames: [],
+            airlineCosts: [4000, 3000, 1500]
         }
+    }
+
+    componentDidMount() {
+        this.props.getAllAirlines();
+        console.log(this.props.airlines);
+    }
+
+    calculateAirlineCost = (val) => {
+        var temp = []
+        var temp1 = []
+        this.props.airlines.map((e, i) => {
+            temp.push([
+                ...[parseFloat(e.air_freight)],
+                ...[parseFloat(e.fuel_surcharge)],
+                ...[parseFloat(e.screening)],
+                ...[parseFloat(e.security_surcharge)]])
+        })
+
+        for (let i = 0; i < temp.length; i++) {
+            var result = temp[i].reduce((a, b) => {
+                return a + b
+            })
+            temp1.push(result)
+        }
+        temp1.sort((a, b) => {
+            return a - b
+        })
+        var final = temp1.map(e => {
+            return val * e;
+        })
+        console.log(final)
+        this.setState({airlineCosts: final}, () => console.log('airline costs', this.state.airlineCosts));
     }
 
     render() {
@@ -34,18 +59,24 @@ class ProfitComparison extends Component {
                     <a href='http://localhost:3005/auth/logout'><button className='btn'><span>Log out</span></button></a>
                 </div>
                 <div>
-                    <h2>Bar Example (custom size)</h2>
-                    <Bar
-                        data={this.state.data}
-                        width={200}
-                        height={100}
-                        options={{
-                            maintainAspectRatio: false
-                        }}
-                    />
+                    <input value={this.state.shipmentWeight} onChange={(e) => this.setState({ shipmentWeight: e.target.value })} />
+                    <button onClick={() => this.calculateAirlineCost(this.state.shipmentWeight)}>Calculate</button>
                 </div>
+                <Chart airlineCosts={this.state.airlineCosts}/>
+                <Link to='/dashboard'>
+                    <button className='btn'><span>Dashboard</span></button>
+                </Link>
             </div>
         )
     }
 }
-export default ProfitComparison;
+
+function mapStateToProps(state) {
+    return {
+        airlines: state.airlines
+    }
+};
+
+const mapDispatchToProps = { getAllAirlines };
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProfitComparison);

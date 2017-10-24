@@ -22,8 +22,8 @@ class AirlineMgmt extends Component {
     const airlines = this.props.airlines;
     const airlineList = airlines.map((airline, i) => {
       return (
-        <Link to='/airlinerecord'>
-          <div className='airrec' key={i} onClick={() => this.props.getOneAirline(airlines[i].airline_id)}>
+        <Link to='/airlinerecord' key={i}>
+          <div className='airrec' onClick={() => this.props.getOneAirline(airlines[i].airline_id)}>
             <p>{airline.airline_name}</p>
             <p>{airline.iata_airline_code}</p>
             <p>{airline.airline_type}</p>
