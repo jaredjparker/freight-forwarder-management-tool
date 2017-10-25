@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
 
-.airlinerecord {
+.customerrecord {
     /* width: 100%; */
-    height: 150vh;
+    height: 80000px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;

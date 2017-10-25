@@ -83,4 +83,4 @@ function mapStateToProps(state) {
         airlineSingular: state.airlineSingular
     }
 }
-export default connect(mapStateToProps, {updateAirline})(AirlineUpdate);
+export default connect(mapStateToProps, { updateAirline })(AirlineUpdate);

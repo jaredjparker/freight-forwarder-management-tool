@@ -31,6 +31,7 @@ const UPDATE_AIRLINE = 'UPDATE_AIRLINE';
 const DELETE_AIRLINE = 'DELETE_AIRLINE';
 const GET_ALL_CUSTOMERS = 'GET_ALL_CUSTOMERS';
 const GET_ONE_CUSTOMER = 'GET_ONE_CUSTOMER';
+const UPDATE_CUSTOMER = 'UPDATE_CUSTOMER';
 
 //ACTION CREATORS
 export function getUserInfo() {
@@ -102,6 +103,18 @@ export function updateAirline(obj) {
     return {
         type: UPDATE_AIRLINE,
         payload: updatedAirline
+    }
+}
+
+export function updateCustomer(obj) {
+    console.log('Update Customer Fired')
+    const updatedCustomer = axios.put('/api/customers', obj).then(response => {
+        return response.data;
+    });
+
+    return {
+        type: UPDATE_CUSTOMER,
+        payload: updatedCustomer
     }
 }
 
@@ -181,6 +194,9 @@ export default function reducer(state = initialState, action) {
 
         case UPDATE_AIRLINE + FULFILLED:
             return Object.assign({}, state, { airlineSingular: action.payload });
+
+        case UPDATE_CUSTOMER + FULFILLED:
+            return Object.assign({}, state, { customerSingular: action.payload });
 
         default: return state;
 

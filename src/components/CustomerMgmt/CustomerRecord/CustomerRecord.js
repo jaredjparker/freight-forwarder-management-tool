@@ -17,7 +17,7 @@ class CustomerRecord extends Component {
         const customerSingular = this.props.customerSingular;
 
         return (
-            <div className='airlinerecord'>
+            <div className='customerrecord'>
                 <div className='recheader'>
                     <img src={logo} alt="" />
                     <p>Customer Record View</p>
@@ -39,8 +39,9 @@ class CustomerRecord extends Component {
                         <p>Air Freight: {customerSingular.air_freight}</p>
                         <p>Fuel Surcharge: {customerSingular.fuel_surcharge}</p>
                         <p>Security Surcharge: {customerSingular.security_surcharge}</p>
-                        
+                        <Link to='/customerupdate'>
                             <button className='btn'><span>Edit Customer</span></button>
+                        </Link>
                     </div>
                 </div>
             </div>
