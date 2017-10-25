@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './CustomerMgmt.css';
-import { getAllCustomers } from './../../ducks/users';
+import { getAllCustomers, getOneCustomer } from './../../ducks/users';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import logo from './logo.svg';
@@ -22,13 +22,13 @@ class CustomerMgmt extends Component {
     const customers = this.props.customers;
     const customerList = customers.map((customer, i) => {
       return (
-        
-          <div className='airrec' key={i}>
+        <Link to='/customerrecord' key={i}>
+          <div className='airrec' onClick={() => this.props.getOneCustomer(customers[i].customer_id)}>
             <p>{customer.customer_name}</p>
             <p>{customer.person_in_charge}</p>
             <p>{customer.email}</p>
           </div>
-    
+        </Link>
       )
     });
 
@@ -43,9 +43,9 @@ class CustomerMgmt extends Component {
           <Link to='/dashboard'>
             <button className='btn'><span>Dashboard</span></button>
           </Link>
-          
-            <button className='btn'><span>New Customer</span></button>
-          
+
+          <button className='btn'><span>New Customer</span></button>
+
         </div>
         {customerList}
       </div>
@@ -59,6 +59,6 @@ function mapStateToProps(state) {
   }
 }
 
-const mapDispatchToProps = { getAllCustomers }
+const mapDispatchToProps = { getAllCustomers, getOneCustomer }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CustomerMgmt);
