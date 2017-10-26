@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { getAllAirlines } from './../../ducks/users';
 import { Link } from 'react-router-dom';
 import Chart from './Chart/Chart';
+import CustomerInput from './Chart/CustomerInput/CustomerInput';
 
 class ProfitComparison extends Component {
     constructor(props) {
@@ -59,6 +60,7 @@ class ProfitComparison extends Component {
                     <a href='http://localhost:3005/auth/logout'><button className='btn'><span>Log out</span></button></a>
                 </div>
                 <div>
+                    <CustomerInput />
                     <input value={this.state.shipmentWeight} onChange={(e) => this.setState({ shipmentWeight: e.target.value })} />
                     <button onClick={() => this.calculateAirlineCost(this.state.shipmentWeight)}>Calculate</button>
                 </div>
