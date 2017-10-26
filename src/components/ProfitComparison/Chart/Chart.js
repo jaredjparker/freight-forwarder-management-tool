@@ -19,7 +19,7 @@ class Chart extends Component {
                     },
                     {
                         label: 'Profit',
-                        data: [10000, 4000, 1300, 1400, 1060, 2030, 2070, 4000, 4100, 4020, 4030, 4050],
+                        data: this.props.profit,
                         backgroundColor: "#ffffff",
                         hoverBackgroundColor: "rgba(225, 58, 55, 0.7)",
                         hoverBorderWidth: 2,
@@ -32,7 +32,7 @@ class Chart extends Component {
 
     componentWillReceiveProps(newProps) {
         console.log(newProps)
-        const update = this.state.info.datasets[0].data
+        // const update = this.state.info.datasets[0].data
         this.setState({
             info: {
                 labels: [...this.state.info.labels],
@@ -47,7 +47,7 @@ class Chart extends Component {
                     },
                     {
                         label: 'Profit',
-                        data: [10000, 4000, 1300, 1400, 1060, 2030, 2070, 4000, 4100, 4020, 4030, 4050],
+                        data: newProps.profit,
                         backgroundColor: "#ffffff",
                         hoverBackgroundColor: "rgba(225, 58, 55, 0.7)",
                         hoverBorderWidth: 2,
@@ -56,7 +56,7 @@ class Chart extends Component {
                 ]
 
             }
-        }, () => { console.log(update) })
+        }, () => { })
     }
 
 
@@ -72,16 +72,15 @@ class Chart extends Component {
                         options={{
                             scales: {
                                 xAxes: [{
-                                    stacked: true
+                                    stacked: false
                                 }],
                                 yAxes: [{
-                                    stacked: true
+                                    stacked: false
                                 }]
                             }
                         }}
                     />
                 </div>
-                <button onClick={()=> console.log(this.state)}>Console</button>
             </div>
         )
     }
