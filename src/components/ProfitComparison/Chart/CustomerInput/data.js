@@ -1,12 +1,12 @@
 exports.AU = [
-	{ value: 'australian-capital-territory', label: 'Australian Capital Territory', className: 'State-ACT' },
-	{ value: 'new-south-wales', label: 'New South Wales', className: 'State-NSW' },
-	{ value: 'victoria', label: 'Victoria', className: 'State-Vic' },
-	{ value: 'queensland', label: 'Queensland', className: 'State-Qld' },
-	{ value: 'western-australia', label: 'Western Australia', className: 'State-WA' },
-	{ value: 'south-australia', label: 'South Australia', className: 'State-SA' },
-	{ value: 'tasmania', label: 'Tasmania', className: 'State-Tas' },
-	{ value: 'northern-territory', label: 'Northern Territory', className: 'State-NT' },
+	{ value: "16", label: "Kuhlman Inc", className: 'State-ACT' },
+	{ value: '8', label: 'Stanton-Rosenbaum', className: 'State-NSW' },
+	{ value: '6', label: 'Lockman-Simonis', className: 'State-Vic' },
+	{ value: '1', label: 'Heller Ltd', className: 'State-Qld' },
+	{ value: '12', label: 'Beier-Spencer', className: 'State-WA' },
+	{ value: '14', label: 'Skiles-Terry', className: 'State-SA' },
+	{ value: '11', label: 'Giant Medical Systems', className: 'State-Tas' },
+	{ value: '9', label: 'Sipes-Keebler', className: 'State-NT' },
 ];
 
 exports.US = [

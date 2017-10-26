@@ -3,8 +3,9 @@ import createClass from 'create-react-class';
 import PropTypes from 'prop-types';
 import Select from 'react-select';
 import './CustomerInput.css';
+import {connect} from 'react-redux';
 
-const STATES = require('./data');
+// const STATES = require('./data');
 
 class CustomerInput extends Component {
     constructor(props) {
@@ -14,7 +15,7 @@ class CustomerInput extends Component {
             country: 'AU',
             disabled: false,
             searchable: this.props.searchable,
-            selectValue: 'Select Customer...',
+            selectValue: 'Customer...',
             clearable: true,
             rtl: false,
             displayName: 'StatesField',
@@ -50,15 +51,15 @@ class CustomerInput extends Component {
         this.setState(newState);
     }
     render() {
-        var options = STATES[this.state.country];
+        // var options = STATES[this.state.country];
         return (
             <div className="section">
-                <h3 className="section-heading">{this.props.label} </h3>
+                <h3 className="section-heading">{this.props.label}</h3>
                 <Select
                     id="state-select"
                     ref="stateSelect"
                     autoFocus
-                    options={options}
+                    options={this.props.AU}
                     simpleValue
                     clearable={this.state.clearable}
                     name="selected-state"
@@ -68,19 +69,15 @@ class CustomerInput extends Component {
                     rtl={this.state.rtl}
                     searchable={this.state.searchable}
                 />
-                <div className="checkbox-list">
-                    <label className="checkbox">
-                        <input type="radio" className="checkbox-control" checked={this.state.country === 'AU'} value="AU" onChange={this.switchCountry} />
-                        <span className="checkbox-label">Cargo</span>
-                    </label>
-                    <label className="checkbox">
-                        <input type="radio" className="checkbox-control" checked={this.state.country === 'US'} value="US" onChange={this.switchCountry} />
-                        <span className="checkbox-label">Passenger</span>
-                    </label>
-                </div>
             </div>
         );
     }
 };
 
-export default CustomerInput;
+function mapStateToProps(state) {
+    return {
+        AU: state.AU
+    }
+};
+
+export default connect(mapStateToProps)(CustomerInput);

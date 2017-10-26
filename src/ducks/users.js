@@ -16,7 +16,17 @@ const initialState = {
         iata_airline_code: 0,
         airline_name: '',
         airline_type: ''
-    }
+    },
+    AU: [
+        { value: "16", label: "Kuhlman Inc", className: 'State-ACT' },
+        { value: '8', label: 'Stanton-Rosenbaum', className: 'State-NSW' },
+        { value: '6', label: 'Lockman-Simonis', className: 'State-Vic' },
+        { value: '1', label: 'Heller Ltd', className: 'State-Qld' },
+        { value: '12', label: 'Beier-Spencer', className: 'State-WA' },
+        { value: '14', label: 'Skiles-Terry', className: 'State-SA' },
+        { value: '11', label: 'Giant Medical Systems', className: 'State-Tas' },
+        { value: '9', label: 'Sipes-Keebler', className: 'State-NT' },
+    ]
 };
 
 //CONSTANTS THAT REPRESENT ACTIONS
