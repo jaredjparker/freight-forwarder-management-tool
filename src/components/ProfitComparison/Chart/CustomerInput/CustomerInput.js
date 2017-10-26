@@ -16,7 +16,7 @@ class CustomerInput extends Component {
             disabled: false,
             searchable: this.props.searchable,
             selectValue: 'Customer...',
-            clearable: true,
+            clearable: false,
             rtl: false,
             displayName: 'StatesField',
             propTypes: {

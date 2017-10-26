@@ -7,7 +7,7 @@ class Chart extends Component {
 
         this.state = {
             info: {
-                labels: ['Delta', 'Nippon', 'kl;jki', 'rob', 'jared'],
+                labels: this.props.airlineNames,
                 datasets: [
                     {
                         label: 'Cost',
@@ -31,11 +31,11 @@ class Chart extends Component {
     }
 
     componentWillReceiveProps(newProps) {
-        console.log(newProps)
+        // console.log(newProps)
         // const update = this.state.info.datasets[0].data
         this.setState({
             info: {
-                labels: [...this.state.info.labels],
+                labels: newProps.airlineNames,
                 datasets: [
                     {
                         label: 'Cost',

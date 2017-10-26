@@ -21,11 +21,11 @@ const initialState = {
     AU: [
         { value: "0", label: "Kuhlman Inc", className: 'State-ACT', rev: '16' },
         { value: '1', label: 'Stanton-Rosenbaum', className: 'State-NSW', rev: '7' },
-        { value: '2', label: 'Lockman-Simonis', className: 'State-Vic', rev: '6' },
+        { value: '2', label: 'Lockman-Simonis', className: 'State-Vic', rev: '2.5' },
         { value: '3', label: 'Heller Ltd', className: 'State-Qld', rev: '8' },
         { value: '4', label: 'Beier-Spencer', className: 'State-WA', rev: '12' },
         { value: '5', label: 'Skiles-Terry', className: 'State-SA', rev: '14' },
-        { value: '6', label: 'Giant Medical Systems', className: 'State-Tas', rev: '11' },
+        { value: '6', label: 'Giant Medical Systems', className: 'State-Tas', rev: '1.90' },
         { value: '7', label: 'Sipes-Keebler', className: 'State-NT', rev: '9' }
     ]
 }
