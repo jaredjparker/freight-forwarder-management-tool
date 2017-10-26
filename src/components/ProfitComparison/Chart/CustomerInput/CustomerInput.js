@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import createClass from 'create-react-class';
 import PropTypes from 'prop-types';
 import Select from 'react-select';
 import './CustomerInput.css';
 import {connect} from 'react-redux';
+import {setSalePrice} from './../../../../ducks/users';
 
 // const STATES = require('./data');
 
@@ -65,7 +65,10 @@ class CustomerInput extends Component {
                     name="selected-state"
                     disabled={this.state.disabled}
                     value={this.state.selectValue}
-                    onChange={this.updateValue}
+                    onChange={((e) => {
+                        this.updateValue(this.props.AU[e]);
+                        this.props.setSalePrice(this.props.AU[e].rev);
+                    })}
                     rtl={this.state.rtl}
                     searchable={this.state.searchable}
                 />
@@ -76,8 +79,9 @@ class CustomerInput extends Component {
 
 function mapStateToProps(state) {
     return {
-        AU: state.AU
+        AU: state.AU,
+        custSalePrice: state.custSalePrice
     }
 };
 
-export default connect(mapStateToProps)(CustomerInput);
+export default connect(mapStateToProps, {setSalePrice})(CustomerInput);

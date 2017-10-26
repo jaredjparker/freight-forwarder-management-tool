@@ -51,6 +51,10 @@ class ProfitComparison extends Component {
         this.setState({airlineCosts: final}, () => console.log('airline costs', this.state.airlineCosts));
     }
 
+    calculateProfit(val) {
+
+    }
+
     render() {
         return (
             <div className="profit">
@@ -62,7 +66,10 @@ class ProfitComparison extends Component {
                 <div>
                     <CustomerInput />
                     <input value={this.state.shipmentWeight} onChange={(e) => this.setState({ shipmentWeight: e.target.value })} />
-                    <button onClick={() => this.calculateAirlineCost(this.state.shipmentWeight)}>Calculate</button>
+                    <button onClick={() => {
+                        this.calculateAirlineCost(this.state.shipmentWeight);
+                        console.log('Two Functions Working');
+                    }}>Calculate</button>
                 </div>
                 <Chart airlineCosts={this.state.airlineCosts}/>
                 <Link to='/dashboard'>
@@ -75,7 +82,8 @@ class ProfitComparison extends Component {
 
 function mapStateToProps(state) {
     return {
-        airlines: state.airlines
+        airlines: state.airlines,
+        AU: state.AU
     }
 };
 

@@ -8,6 +8,7 @@ const initialState = {
     airlineSingular: {},
     customerSingular: {},
     newAirline: {},
+    custSalePrice: '1561564',
     wizard: {
         air_freight: 0,
         fuel_surcharge: 0,
@@ -18,16 +19,16 @@ const initialState = {
         airline_type: ''
     },
     AU: [
-        { value: "16", label: "Kuhlman Inc", className: 'State-ACT' },
-        { value: '8', label: 'Stanton-Rosenbaum', className: 'State-NSW' },
-        { value: '6', label: 'Lockman-Simonis', className: 'State-Vic' },
-        { value: '1', label: 'Heller Ltd', className: 'State-Qld' },
-        { value: '12', label: 'Beier-Spencer', className: 'State-WA' },
-        { value: '14', label: 'Skiles-Terry', className: 'State-SA' },
-        { value: '11', label: 'Giant Medical Systems', className: 'State-Tas' },
-        { value: '9', label: 'Sipes-Keebler', className: 'State-NT' },
+        { value: "0", label: "Kuhlman Inc", className: 'State-ACT', rev: '16' },
+        { value: '1', label: 'Stanton-Rosenbaum', className: 'State-NSW', rev: '7' },
+        { value: '2', label: 'Lockman-Simonis', className: 'State-Vic', rev: '6' },
+        { value: '3', label: 'Heller Ltd', className: 'State-Qld', rev: '8' },
+        { value: '4', label: 'Beier-Spencer', className: 'State-WA', rev: '12' },
+        { value: '5', label: 'Skiles-Terry', className: 'State-SA', rev: '14' },
+        { value: '6', label: 'Giant Medical Systems', className: 'State-Tas', rev: '11' },
+        { value: '7', label: 'Sipes-Keebler', className: 'State-NT', rev: '9' }
     ]
-};
+}
 
 //CONSTANTS THAT REPRESENT ACTIONS
 const FULFILLED = '_FULFILLED';
@@ -42,6 +43,7 @@ const DELETE_AIRLINE = 'DELETE_AIRLINE';
 const GET_ALL_CUSTOMERS = 'GET_ALL_CUSTOMERS';
 const GET_ONE_CUSTOMER = 'GET_ONE_CUSTOMER';
 const UPDATE_CUSTOMER = 'UPDATE_CUSTOMER';
+const CUST_SALE_PRICE = 'CUST_SALE_PRICE';
 
 //ACTION CREATORS
 export function getUserInfo() {
@@ -82,6 +84,13 @@ export function updateWizard(obj) {
         type: UPDATE_WIZARD,
         payload: obj
     };
+}
+
+export function setSalePrice(val) {
+    return {
+        type: CUST_SALE_PRICE,
+        payload: val
+    }
 }
 
 export function resetWizard() {
@@ -190,6 +199,9 @@ export default function reducer(state = initialState, action) {
             }
             return newState;
         }
+
+        case CUST_SALE_PRICE:
+            return Object.assign({}, state, { custSalePrice: action.payload });
 
         case RESET_WIZARD: {
             let newState = Object.assign({}, state);
