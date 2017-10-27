@@ -10,6 +10,7 @@ const customer_controllers = require('./controllers/customer_controllers');
 
 const app = express();
 
+app.use( express.static( `${__dirname}/../build` ) );
 app.use(bodyParser.json());
 app.use(session({
     secret: process.env.SECRET,
