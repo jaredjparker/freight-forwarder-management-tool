@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './AirlineMgmt.css';
 import { getAllAirlines, getOneAirline } from './../../ducks/users';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -23,28 +22,28 @@ class AirlineMgmt extends Component {
     const airlineList = airlines.map((airline, i) => {
       return (
         <Link to='/airlinerecord' key={i}>
-          <div className='airrec' onClick={() => this.props.getOneAirline(airlines[i].airline_id)}>
-            <p>{airline.airline_name}</p>
-            <p>{airline.iata_airline_code}</p>
-            <p>{airline.airline_type}</p>
+          <div className='airlinemrec' onClick={() => this.props.getOneAirline(airlines[i].airline_id)}>
+            <div className='chaos'><p className='reclineitem'>Airline Name:</p><p className='reclineitem'>{airline.airline_name}</p></div>
+            <div className='chaos'><p className='reclineitem'>Airline Code:</p><p className='reclineitem'>{airline.iata_airline_code}</p></div>
+            <div className='chaos'><p className='reclineitem'>Airline Type:</p><p className='reclineitem'>{airline.airline_type}</p></div>
           </div>
         </Link>
       )
     });
 
     return (
-      <div className="airlinemgmt">
-        <div className='airheader'>
+      <div className="airlinemanagement">
+        <div className='airlinemheader'>
           <img src={logo} alt="" />
-          <h2>Airline Management</h2>
-          <a href='http://localhost:3005/auth/logout'><button className='btn'><span>Log out</span></button></a>
+          <h1 className='airlinemh'>Airline Management</h1>
+          <a href='http://localhost:3005/auth/logout'><button className='bton'><span>Log out</span></button></a>
         </div>
-        <div className='sbox'>
-          <Link to='/dashboard'>
-            <button className='btn'><span>Dashboard</span></button>
+        <div className='airmgmtleftpanel'>
+          <Link to='/profitcomparison'>
+            <button className='bton'><span>Profit Comparison</span></button>
           </Link>
           <Link to='/airlinenewrecord'>
-            <button className='btn'><span>New Airline</span></button>
+            <button className='bton'><span>New Airline</span></button>
           </Link>
         </div>
         {airlineList}

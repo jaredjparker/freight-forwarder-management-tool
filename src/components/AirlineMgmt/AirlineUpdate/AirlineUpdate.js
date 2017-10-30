@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import './AirlineUpdate.css';
-import logo from './logo.svg';
+import logo from './../../AirlineMgmt/logo.svg';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { updateAirline } from './../../../ducks/users';
@@ -44,37 +43,38 @@ class AirlineUpdate extends Component {
     render() {
         const { airFreight, fuelSurcharge, securitySurcharge, screening, iataAirlineCode, airlineName, airlineType } = this.state;
         return (
-            <div className='airlinerecord'>
-                <div className='recheader'>
+            <div className='airupdate'>
+                <div className='airupheader'>
                     <img src={logo} alt="" />
-                    <p>Airline Update View</p>
-                    <a href='http://localhost:3005/auth/logout'><button className='btn'><span>Log out</span></button></a>
+                    <h1 className='airuptitle'>Airline Update View</h1>
+                    <a href='http://localhost:3005/auth/logout'><button className='bton'><span>Log out</span></button></a>
                 </div>
-                <div className='selectbox'>
+                <div className='airupleftpanel'>
                     <Link to='/airlinemgmt'>
-                        <button className='btn'><span>Airline Management</span></button>
+                        <button className='bton'><span>Airline Management</span></button>
                     </Link>
                     <Link to='/airlinerecord'>
-                        <button className='btn'><span>Airline Record</span></button>
-                    </Link>
-                    <Link to='/profitcomparison'>
-                        <button className='btn' onClick={this.finishWizard}><span>Submit Airline Edit</span></button>
+                        <button className='bton'><span>Airline Record</span></button>
                     </Link>
                     <Link to='/airlinemgmt'>
-                        <button className='btn'><span>Cancel</span></button>
+                        <button className='bton'><span>Cancel</span></button>
                     </Link>
                 </div>
-                <div className='recborder'>
+                <div className='airupborder'>
                     <form>
-                        <p className='formdisplay'>Airline: <input type="text" value={airlineName} onChange={(e) => this.handleChange('airlineName', e.target.value)} /></p>
-                        <p className='formdisplay'>IATA Airline Code: <input type="number" value={iataAirlineCode} onChange={(e) => this.handleChange('iataAirlineCode', e.target.value)} /></p>
-                        <p className='formdisplay'>Airline Type: <input type="text" value={airlineType} onChange={(e) => this.handleChange('airlineType', e.target.value)} /></p>
-                        <p className='formdisplay'>Air Freight: <input type="number" value={airFreight} onChange={(e) => this.handleChange('airFreight', e.target.value)} /></p>
-                        <p className='formdisplay'>Fuel Surcharge: <input type="number" value={fuelSurcharge} onChange={(e) => this.handleChange('fuelSurcharge', e.target.value)} /></p>
-                        <p className='formdisplay'>Screening: <input type="number" value={screening} onChange={(e) => this.handleChange('screening', e.target.value)} /></p>
-                        <p className='formdisplay'>Security Surcharge: <input type="number" value={securitySurcharge} onChange={(e) => this.handleChange('securitySurcharge', e.target.value)} /></p>
+                        <div className='airuplineitem'><p className='formdisplay'>Airline Name: <input className='airupin' type="text" value={airlineName} onChange={(e) => this.handleChange('airlineName', e.target.value)} /></p></div>
+                        <div className='airuplineitem'><p className='formdisplay'>Airline Code: <input className='airupin' type="number" value={iataAirlineCode} onChange={(e) => this.handleChange('iataAirlineCode', e.target.value)} /></p></div>
+                        <div className='airuplineitem'><p className='formdisplay'>Airline Type: <input className='airupin' type="text" value={airlineType} onChange={(e) => this.handleChange('airlineType', e.target.value)} /></p></div>
+                        <div className='airuplineitem'><p className='formdisplay'>Air Freight: <input className='airupin' type="number" value={airFreight} onChange={(e) => this.handleChange('airFreight', e.target.value)} /></p></div>
+                        <div className='airuplineitem'><p className='formdisplay'>Fuel Charge: <input className='airupin' type="number" value={fuelSurcharge} onChange={(e) => this.handleChange('fuelSurcharge', e.target.value)} /></p></div>
+                        <div className='airuplineitem'><p className='formdisplay'>Screening: <input className='airupin' type="number" value={screening} onChange={(e) => this.handleChange('screening', e.target.value)} /></p></div>
+                        <div className='airuplineitem'><p className='formdisplay'>Security SC: <input className='airupin' type="number" value={securitySurcharge} onChange={(e) => this.handleChange('securitySurcharge', e.target.value)} /></p></div>
                     </form>
+                    <Link to='/profitcomparison'>
+                        <button className='bton' onClick={this.finishWizard}><span>Submit Airline Edit</span></button>
+                    </Link>
                 </div>
+                <div className='airupfoot'></div>
             </div>
         )
     }

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import './AirlineNewRecord.css';
 import { connect } from 'react-redux'
 import { updateWizard, createAirline, resetWizard } from './../../../ducks/users';
-import logo from './logo.svg';
+import logo from './../../AirlineMgmt/logo.svg';
 import { Link } from 'react-router-dom';
 
 class AirlineNewRecord extends Component {
@@ -44,22 +43,22 @@ class AirlineNewRecord extends Component {
     render() {
         const { airFreight, fuelSurcharge, securitySurcharge, screening, iataAirlineCode, airlineName, airlineType } = this.state;
         return (
-            <div className='airlinerecord'>
-                <div className='recheader'>
+            <div className='airlinenewrecord'>
+                <div className='airnewrecheader'>
                     <img src={logo} alt="" />
-                    <p>Airline New Record View</p>
-                    <a href='http://localhost:3005/auth/logout'><button className='btn'><span>Log out</span></button></a>
+                    <h1 className='airnewtitle'>Airline New Record View</h1>
+                    <a href='http://localhost:3005/auth/logout'><button className='bton'><span>Log out</span></button></a>
                 </div>
                 <div className='barbox'>
                     <div className='selectbox'>
                         <Link to='/airlinemgmt'>
-                            <button className='btn'><span>Airline Management</span></button>
+                            <button className='bton'><span>Airline Management</span></button>
                         </Link>
                         <Link to='/profitcomparison'>
-                            <button className='btn' onClick={this.finishWizard}><span>Add Airline</span></button>
+                            <button className='bton' onClick={this.finishWizard}><span>Add Airline</span></button>
                         </Link>
                     </div>
-                    <div className='recborder'>
+                    <div className='airnewborder'>
                         <form>
                             <p className='formdisplay'>Airline: <input type="text" value={airlineName} onChange={(e) => this.handleChange('airlineName', e.target.value)} /></p>
                             <p className='formdisplay'>IATA Airline Code: <input type="number" value={iataAirlineCode} onChange={(e) => this.handleChange('iataAirlineCode', e.target.value)} /></p>

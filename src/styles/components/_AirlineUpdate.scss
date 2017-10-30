@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+
+.airupdate {
+    /* width: 100%; */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background: linear-gradient(to bottom right, $dark-blue-green, $darkish-green);
+    color: $light-yellow;
+    font-family: 'Roboto', sans-serif;
+  }
+
+.airupheader {
+    width: 98%;
+    height: 13vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background: linear-gradient(to bottom right, $dark-blue-green, $dark-blue);
+    padding: 16px;
+}
+
+.airupleftpanel {
+    position: absolute;
+    left: 150px;
+    top: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.airupfoot {
+    width: 100%;
+    height: 5vh;
+    background: linear-gradient(to bottom right, $dark-blue-green, $dark-blue);
+    position: absolute;
+    bottom: 0;
+}
+
+.formdisplay {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: left;
+    padding-left: 12px;
+    margin: 12px;
+    color: $light-yellow;
+}
+
+.airupborder {
+    width: 47vw;
+    /* height: 8vh; */
+    border: 3px solid $light-yellow;
+    border-radius: 2px;
+    margin: 67px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: left;
+    padding-left: 12px;
+}
+
+.airuplineitem {
+    text-decoration: none;
+    font-size: 1rem;
+    margin-left: 20px;
+}
+
+.airupin {
+    margin-left: 30px;
+    border-radius: 2px;
+}
+
+.airuptitle {
+    color: $light-yellow;
+    font-family: 'Roboto', sans-serif;
+}
+
+.bton {
+  background: linear-gradient(to bottom right, $darkish-green, $dark-blue-green);
+  color: $light-yellow;
+  border-radius: 5px;
+  margin: 37px;
+  height: 51px;
+  width: 158px;
+  font-size: 1rem;
+  font-family: 'Roboto', sans-serif;
+  border: $light-yellow;
+}
+
+.bton span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.bton span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.bton:hover span {
+  padding-right: 25px;
+}
+
+.bton:hover span:after {
+  opacity: 1;
+  right: 0;
+}

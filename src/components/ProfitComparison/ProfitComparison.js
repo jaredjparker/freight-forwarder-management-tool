@@ -24,7 +24,7 @@ class ProfitComparison extends Component {
     }
 
     calculateAirlineCost = (val) => {
-        const { shipmentWeight, totalRevenue } = this.state;
+        const { shipmentWeight } = this.state;
         const { custSalePrice, airlines } = this.props;
         const onlyLabels = [];
         const labelValCombo = [];
@@ -95,6 +95,15 @@ class ProfitComparison extends Component {
                     <h1 className='pcompheader'>Profit Comparison</h1>
                     <a href='http://localhost:3005/auth/logout'><button><span>Log out</span></button></a>
                 </div>
+                <div className='leftpanel'>
+                    <Link to='/airlinemgmt'>
+                        <button><span>Airline Management</span></button>
+                    </Link>
+                    <Link to='/customermgmt'>
+                        <button><span>Customer Management</span></button>
+                    </Link>
+                    <button><span>Flight Management</span></button>
+                </div>
                 <div className='pcinput'>
                     <div className='custinput'>
                         <h6 className='inputtitle'>Customer Input</h6>
@@ -108,6 +117,7 @@ class ProfitComparison extends Component {
                 <button onClick={() => this.calculateAirlineCost(this.state.shipmentWeight)}><span>Calculate</span></button>
                 <h6 className='revbox'>Total Revenue = ${this.state.totalRevenue}</h6>
                 <Chart airlineCosts={this.state.airlineCosts} profit={this.state.profit} airlineNames={this.state.airlineNames} />
+                <div className='profitfoot'></div>
             </div>
         )
     }
