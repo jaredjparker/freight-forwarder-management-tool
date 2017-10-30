@@ -102,7 +102,9 @@ class ProfitComparison extends Component {
                     <Link to='/customermgmt'>
                         <button><span>Customer Management</span></button>
                     </Link>
-                    <button><span>Flight Management</span></button>
+                    <Link to='/flightmgmt'>
+                        <button><span>Flight Management</span></button>
+                    </Link>
                 </div>
                 <div className='pcinput'>
                     <div className='custinput'>

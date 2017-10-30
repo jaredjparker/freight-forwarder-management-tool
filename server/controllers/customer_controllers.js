@@ -24,5 +24,13 @@ module.exports = {
         db.update_customer_record([air_freight, fuel_surcharge, security_surcharge, cell_phone, office_phone, customer_name, industry, person_in_charge, address, email, notes, customer_id])
             .then(() => res.status(200).send())
             .catch(() => res.status(500).send());
+    },
+
+    getFlights: (req, res, next) => {
+        const db = req.app.get('db');
+
+        db.get_all_flights()
+            .then((flights) => res.status(200).send(flights))
+            .catch(() => res.status(500).send());
     }
 }

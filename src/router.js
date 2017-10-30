@@ -11,6 +11,7 @@ import ProfitComparison from './components/ProfitComparison/ProfitComparison';
 import CustomerMgmt from './components/CustomerMgmt/CustomerMgmt';
 import CustomerRecord from './components/CustomerMgmt/CustomerRecord/CustomerRecord';
 import CustomerUpdate from './components/CustomerMgmt/CustomerUpdate/CustomerUpdate';
+import FlightMgmt from './components/FlightMgmt/FlightMgmt';
 
 
 export default (
@@ -26,6 +27,7 @@ export default (
             <Route component={CustomerMgmt} path='/customermgmt' />
             <Route component={CustomerRecord} path='/customerrecord' />
             <Route component={CustomerUpdate} path ='/customerupdate' />
+            <Route component={FlightMgmt} path='/flightmgmt' />
         </div>
     </HashRouter>
 )

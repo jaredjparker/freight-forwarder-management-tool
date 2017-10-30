@@ -79,6 +79,9 @@ app.get('/api/customers', customer_controllers.getCustomers);
 app.get('/api/customers/:id', customer_controllers.getOneCustomer);
 app.put('/api/customers', customer_controllers.updateCustomer);
 
+// Endpoints for Flight Management.
+app.get('/api/flights', customer_controllers.getFlights);
+
 passport.serializeUser(function (id, done) {
     done(null, id);
 })

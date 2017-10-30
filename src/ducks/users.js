@@ -9,6 +9,7 @@ const initialState = {
     customerSingular: {},
     newAirline: {},
     custSalePrice: '0',
+    flights: [{}],
     wizard: {
         air_freight: 0,
         fuel_surcharge: 0,
@@ -44,6 +45,7 @@ const GET_ALL_CUSTOMERS = 'GET_ALL_CUSTOMERS';
 const GET_ONE_CUSTOMER = 'GET_ONE_CUSTOMER';
 const UPDATE_CUSTOMER = 'UPDATE_CUSTOMER';
 const CUST_SALE_PRICE = 'CUST_SALE_PRICE';
+const GET_ALL_FLIGHTS = 'GET_ALL_FLIGHTS';
 
 //ACTION CREATORS
 export function getUserInfo() {
@@ -65,6 +67,17 @@ export function getAllAirlines() {
     return {
         type: GET_ALL_AIRLINES,
         payload: allAirlines
+    }
+}
+
+export function getAllFlights() {
+    const allFlights = axios.get('/api/flights')
+        .then(res => {
+            return res.data
+        })
+    return {
+        type: GET_ALL_FLIGHTS,
+        payload: allFlights
     }
 }
 
@@ -181,6 +194,8 @@ export default function reducer(state = initialState, action) {
 
         case GET_ALL_CUSTOMERS + FULFILLED:
             return Object.assign({}, state, { customers: action.payload })
+        case GET_ALL_FLIGHTS + FULFILLED:
+            return Object.assign({}, state, { flights: action.payload })
         case GET_ONE_CUSTOMER + FULFILLED:
             return Object.assign({}, state, { customerSingular: action.payload })
 
