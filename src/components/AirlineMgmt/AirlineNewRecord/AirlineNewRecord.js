@@ -55,7 +55,9 @@ class AirlineNewRecord extends Component {
                         <Link to='/airlinemgmt'>
                             <button className='btn'><span>Airline Management</span></button>
                         </Link>
-                        <button className='btn' onClick={this.finishWizard}><span>Add Airline</span></button>
+                        <Link to='/profitcomparison'>
+                            <button className='btn' onClick={this.finishWizard}><span>Add Airline</span></button>
+                        </Link>
                     </div>
                     <div className='recborder'>
                         <form>

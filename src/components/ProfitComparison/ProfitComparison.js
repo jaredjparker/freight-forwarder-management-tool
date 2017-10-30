@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './ProfitComparison.css';
 import logo from './../AirlineMgmt/logo.svg';
 import { connect } from 'react-redux';
 import { getAllAirlines } from './../../ducks/users';
@@ -15,7 +14,8 @@ class ProfitComparison extends Component {
             shipmentWeight: 0,
             profit: [],
             airlineNames: [],
-            airlineCosts: []
+            airlineCosts: [],
+            totalRevenue: 0
         }
     }
 
@@ -24,7 +24,7 @@ class ProfitComparison extends Component {
     }
 
     calculateAirlineCost = (val) => {
-        const { shipmentWeight } = this.state;
+        const { shipmentWeight, totalRevenue } = this.state;
         const { custSalePrice, airlines } = this.props;
         const onlyLabels = [];
         const labelValCombo = [];
@@ -63,21 +63,26 @@ class ProfitComparison extends Component {
         })
 
         labelValCombo.sort((a, b) => a[0] - b[0]);
-        console.log(labelValCombo);
 
         for (let i = 0; i < 5; i++) {
             fiveArray.push(labelValCombo[i]);
         }
-        console.log(fiveArray);
 
         const finalProfit = fiveArray.map((e, i) => {
             return (custSalePrice * shipmentWeight - e[0]);
         })
+
+        function totalRev(val) {
+            return shipmentWeight * val;
+        }
+        const revenue = totalRev(custSalePrice);
+
         fiveArray.map((e, i) => finalCost.push(e[0]));
         fiveArray.map((e, i) => finalLabels.push(e[1]));
         this.setState({ profit: finalProfit });
         this.setState({ airlineCosts: finalCost });
         this.setState({ airlineNames: finalLabels });
+        this.setState({ totalRevenue: revenue });
     }
 
     render() {
@@ -87,18 +92,22 @@ class ProfitComparison extends Component {
             <div className="profit">
                 <div className='profitheader'>
                     <img src={logo} alt="" />
-                    <h1>Profit Comparison</h1>
-                    <a href='http://localhost:3005/auth/logout'><button className='btn'><span>Log out</span></button></a>
+                    <h1 className='pcompheader'>Profit Comparison</h1>
+                    <a href='http://localhost:3005/auth/logout'><button><span>Log out</span></button></a>
                 </div>
-                <div>
-                    <CustomerInput />
-                    <input value={this.state.shipmentWeight} onChange={(e) => this.setState({ shipmentWeight: e.target.value })} />
-                    <button onClick={() => this.calculateAirlineCost(this.state.shipmentWeight)}>Calculate</button>
+                <div className='pcinput'>
+                    <div className='custinput'>
+                        <h6 className='inputtitle'>Customer Input</h6>
+                        <CustomerInput />
+                    </div>
+                    <div className='custinput'>
+                        <h6 className='inputtitle'>Shipment Weight in kgs</h6>
+                        <input className='weightinput' value={this.state.shipmentWeight} onChange={(e) => this.setState({ shipmentWeight: e.target.value })} />
+                    </div>
                 </div>
+                <button onClick={() => this.calculateAirlineCost(this.state.shipmentWeight)}><span>Calculate</span></button>
+                <h6 className='revbox'>Total Revenue = ${this.state.totalRevenue}</h6>
                 <Chart airlineCosts={this.state.airlineCosts} profit={this.state.profit} airlineNames={this.state.airlineNames} />
-                <Link to='/dashboard'>
-                    <button className='btn'><span>Dashboard</span></button>
-                </Link>
             </div>
         )
     }

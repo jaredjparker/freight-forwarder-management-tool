@@ -57,7 +57,9 @@ class AirlineUpdate extends Component {
                     <Link to='/airlinerecord'>
                         <button className='btn'><span>Airline Record</span></button>
                     </Link>
-                    <button className='btn' onClick={this.finishWizard}><span>Submit Airline Edit</span></button>
+                    <Link to='/profitcomparison'>
+                        <button className='btn' onClick={this.finishWizard}><span>Submit Airline Edit</span></button>
+                    </Link>
                     <Link to='/airlinemgmt'>
                         <button className='btn'><span>Cancel</span></button>
                     </Link>

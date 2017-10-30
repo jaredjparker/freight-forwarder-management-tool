@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './Dashboard.css';
 import { getUserInfo } from './../../ducks/users';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -25,17 +24,17 @@ class Dashboard extends Component {
       <div className="dashboard">
         <div className='dashHeader'>
           <img src={logo} alt="" />
-          <h1>Dashboard</h1>
-          <a href='http://localhost:3005/auth/logout'><button className='btn'><span>Log out</span></button></a>
+          <h1 className='dashtitle'>Dashboard</h1>
+          <a href='http://localhost:3005/auth/logout'><button><span>Log out</span></button></a>
         </div>
         <div className='selectbar'>
           <div className='selectbox'>
-            <Link to='/airlinemgmt'><button className='btn'><span>Airline Management</span></button></Link>
+            <Link to='/airlinemgmt'><button><span>Airline Management</span></button></Link>
             <Link to='/customermgmt'>
-              <button className='btn'><span>Customer Management</span></button>
+              <button><span>Customer Management</span></button>
             </Link>
             <Link to='/profitcomparison'>
-              <button className='btn'><span>Profit Comparison</span></button>
+              <button><span>Profit Comparison</span></button>
             </Link>
           </div>
           <div className='data'>

@@ -12,7 +12,7 @@ class Chart extends Component {
                     {
                         label: 'Cost',
                         data: this.props.airlineCosts,
-                        backgroundColor: "#61DAFB",
+                        backgroundColor: "#D3D3D3",
                         hoverBackgroundColor: "rgba(55, 160, 225, 0.7)",
                         hoverBorderWidth: 2,
                         hoverBorderColor: 'lightgrey'
@@ -20,7 +20,7 @@ class Chart extends Component {
                     {
                         label: 'Profit',
                         data: this.props.profit,
-                        backgroundColor: "#ffffff",
+                        backgroundColor: "#000000",
                         hoverBackgroundColor: "rgba(225, 58, 55, 0.7)",
                         hoverBorderWidth: 2,
                         hoverBorderColor: 'lightgrey'
@@ -40,7 +40,7 @@ class Chart extends Component {
                     {
                         label: 'Cost',
                         data: newProps.airlineCosts,
-                        backgroundColor: "#61DAFB",
+                        backgroundColor: "#D3D3D3",
                         hoverBackgroundColor: "rgba(55, 160, 225, 0.7)",
                         hoverBorderWidth: 2,
                         hoverBorderColor: 'lightgrey'
@@ -48,7 +48,7 @@ class Chart extends Component {
                     {
                         label: 'Profit',
                         data: newProps.profit,
-                        backgroundColor: "#ffffff",
+                        backgroundColor: "#000000",
                         hoverBackgroundColor: "rgba(225, 58, 55, 0.7)",
                         hoverBorderWidth: 2,
                         hoverBorderColor: 'lightgrey'
@@ -64,11 +64,11 @@ class Chart extends Component {
     render() {
         return (
             <div>
-                <div>
+                <div className='chartdiv'>
                     <Bar
                         data={this.state.info}
-                        width={600}
-                        height={350}
+                        width={950}
+                        height={500}
                         options={{
                             scales: {
                                 xAxes: [{

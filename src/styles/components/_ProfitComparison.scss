@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+
+.profitheader {
+    width: 98%;
+    height: 13vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background: linear-gradient(to bottom right, $dark-blue-green, $dark-blue);
+    padding: 16px;
+}
+
+.profit {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background: linear-gradient(to bottom right, $dark-blue-green, $darkish-green);
+  }
+
+  .pcompheader {
+      color: $light-yellow;
+      font-family: 'Roboto', sans-serif;
+  }
+
+  .inputtitle {
+      font-size: 1rem;
+      color: $light-yellow;
+      margin: 17px;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: left;
+  }
+
+  .pcinput {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      width: 850px;
+  }
+
+  .custinput {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 270px;
+}
+
+.revbox {
+    font-size: 1rem;
+    color: $light-yellow;
+    margin: 17px;
+    border-radius: 5px;
+    background: linear-gradient(to bottom right, $dark-blue, $dark-blue-green);
+    padding: 14px;
+    margin: 5px;
+}
+
+.weightinput {
+    height: 31px;
+    border-radius: 4px;
+    margin: -10px;
+    padding-left: 10px;
+    font-size: .75rem;
+}
+
+.pangraph {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.leftpanel {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+  button {
+    background: linear-gradient(to bottom right, #00A896, #02C39A);
+    color: #F0F3BD;
+    border-radius: 5px;
+    margin: 12px;
+    height: 51px;
+    width: 158px;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    border: #F0F3BD;
+  }
+  
+  button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  button:hover span {
+    padding-right: 25px;
+  }
+  
+  button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }

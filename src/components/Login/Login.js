@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './Login.css';
 import logo from './logo.svg';
 
 class Login extends Component {
@@ -7,8 +6,11 @@ class Login extends Component {
     return (
       <div className="Login">
         <div className='logbox'>
-        <img className='currency' src={logo} alt="" />
-        <a href={process.env.REACT_APP_LOGIN}><button className='btn'><span>Login</span></button></a>
+          <img className='currency' src={logo} alt="" />
+          <div className='logrow'>
+            <a href={process.env.REACT_APP_LOGIN}><button><span>Login</span></button></a>
+            <a href={process.env.REACT_APP_LOGIN}><button><span>Register</span></button></a>
+          </div>
         </div>
       </div>
     );

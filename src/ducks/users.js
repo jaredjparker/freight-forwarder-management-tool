@@ -8,7 +8,7 @@ const initialState = {
     airlineSingular: {},
     customerSingular: {},
     newAirline: {},
-    custSalePrice: '1561564',
+    custSalePrice: '0',
     wizard: {
         air_freight: 0,
         fuel_surcharge: 0,
@@ -19,14 +19,14 @@ const initialState = {
         airline_type: ''
     },
     AU: [
-        { value: "0", label: "Kuhlman Inc", className: 'State-ACT', rev: '16' },
-        { value: '1', label: 'Stanton-Rosenbaum', className: 'State-NSW', rev: '7' },
+        { value: "0", label: "Kuhlman Inc", className: 'State-ACT', rev: '3.9' },
+        { value: '1', label: 'Stanton-Rosenbaum', className: 'State-NSW', rev: '2.9' },
         { value: '2', label: 'Lockman-Simonis', className: 'State-Vic', rev: '2.5' },
-        { value: '3', label: 'Heller Ltd', className: 'State-Qld', rev: '8' },
-        { value: '4', label: 'Beier-Spencer', className: 'State-WA', rev: '12' },
-        { value: '5', label: 'Skiles-Terry', className: 'State-SA', rev: '14' },
+        { value: '3', label: 'Heller Ltd', className: 'State-Qld', rev: '1.8' },
+        { value: '4', label: 'Beier-Spencer', className: 'State-WA', rev: '3.1' },
+        { value: '5', label: 'Skiles-Terry', className: 'State-SA', rev: '3.5' },
         { value: '6', label: 'Giant Medical Systems', className: 'State-Tas', rev: '1.90' },
-        { value: '7', label: 'Sipes-Keebler', className: 'State-NT', rev: '9' }
+        { value: '7', label: 'Sipes-Keebler', className: 'State-NT', rev: '4' }
     ]
 }
 
