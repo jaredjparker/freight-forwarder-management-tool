@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import logo from './../../AirlineMgmt/logo.svg';
 import { Link } from 'react-router-dom';
+import { confirmAlert } from 'react-confirm-alert';
 import { deleteAirline } from './../../../ducks/users';
 
 class AirlineRecord extends Component {
@@ -9,9 +10,22 @@ class AirlineRecord extends Component {
         super(props);
 
         this.state = {
-            recordInfo: {}
+            recordInfo: {},
+            showDialog: false
         }
     }
+
+    submit = () => {
+        confirmAlert({
+          title: 'Confirm to Delete',                        // Title dialog
+          message: 'Are you sure you want to delete?',               // Message dialog
+          childrenElement: () => <img src={logo} alt="" />,       // Custom UI or Component
+          confirmLabel: 'Delete',                           // Text button confirm
+          cancelLabel: 'Cancel',                             // Text button cancel
+          onConfirm: () => this.props.deleteAirline(this.props.airlineSingular.airline_id),    // Action after Confirm
+          onCancel: () => <Link to='/airlinerecord'></Link>,      // Action after Cancel
+        })
+      };
 
     render() {
         const airlineSingular = this.props.airlineSingular;
@@ -40,7 +54,7 @@ class AirlineRecord extends Component {
                             <Link to='/airlineupdate'>
                                 <button className='bton'><span>Edit Airline</span></button>
                             </Link>
-                            <button className='bton' onClick={() => this.props.deleteAirline(airlineSingular.airline_id)}><span>Delete Airline</span></button>
+                            <button className='bton' onClick={this.submit}><span>Delete Airline</span></button>
                         </div>
                     </div>
                 </div>

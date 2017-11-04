@@ -106,19 +106,25 @@ class ProfitComparison extends Component {
                         <button><span>Flight Management</span></button>
                     </Link>
                 </div>
-                <div className='pcinput'>
-                    <div className='custinput'>
-                        <h6 className='inputtitle'>Customer Input</h6>
-                        <CustomerInput />
+                <div >
+                    <div className='pcinput'>
+                        <div className='custinput'>
+                            <h6 className='inputtitle'>Customer Input</h6>
+                            <CustomerInput />
+                        </div>
+                        <div className='custinput'>
+                            <h6 className='inputtitle'>Shipment Weight in kgs</h6>
+                            <input className='weightinput' value={this.state.shipmentWeight} onChange={(e) => this.setState({ shipmentWeight: e.target.value })} />
+                        </div>
                     </div>
-                    <div className='custinput'>
-                        <h6 className='inputtitle'>Shipment Weight in kgs</h6>
-                        <input className='weightinput' value={this.state.shipmentWeight} onChange={(e) => this.setState({ shipmentWeight: e.target.value })} />
+                    <div className='centbuton'>
+                        <button onClick={() => this.calculateAirlineCost(this.state.shipmentWeight)}><span>Calculate</span></button>
+                        <h6 className='revbox'>Total Revenue = ${this.state.totalRevenue}</h6>
+                    </div>
+                    <div className='barchart'>
+                        <Chart airlineCosts={this.state.airlineCosts} profit={this.state.profit} airlineNames={this.state.airlineNames} />
                     </div>
                 </div>
-                <button onClick={() => this.calculateAirlineCost(this.state.shipmentWeight)}><span>Calculate</span></button>
-                <h6 className='revbox'>Total Revenue = ${this.state.totalRevenue}</h6>
-                <Chart airlineCosts={this.state.airlineCosts} profit={this.state.profit} airlineNames={this.state.airlineNames} />
                 <div className='profitfoot'></div>
             </div>
         )
