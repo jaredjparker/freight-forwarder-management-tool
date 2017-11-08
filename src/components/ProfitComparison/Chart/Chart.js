@@ -67,9 +67,10 @@ class Chart extends Component {
                 <div className='chartdiv'>
                     <Bar
                         data={this.state.info}
-                        width={950}
-                        height={500}
+                        width={300}
+                        height={474}
                         options={{
+                            maintainAspectRatio: false,
                             scales: {
                                 xAxes: [{
                                     stacked: false

@@ -1,123 +1,136 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
 
+.profit {
+    display: grid;
+    grid-template-columns: 20% 10% 10% 10% 10% 10% 10% 20%;
+    grid-template-rows: 20% 10% 10% 30% 20%;
+    height: 100vh;
+    background: linear-gradient(to bottom right, $dark-blue-green, $darkish-green);
+}
+
 .profitheader {
-    grid-column: 1 / span 5;
+    grid-column: 1 / 10;
+    background: linear-gradient(to bottom right, $dark-blue-green, $dark-blue);
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    background: linear-gradient(to bottom right, $dark-blue-green, $dark-blue);
-    padding: 16px;
 }
 
 .profitfoot {
-    grid-area: 5 / 1 / 6 / 6;
+    grid-column: 1 / 10;
+    grid-row: 6;
+    margin-top: 8px;
     background: linear-gradient(to bottom right, $dark-blue-green, $dark-blue);
 }
 
-.profit {
-    display: grid;
-    grid-template-columns: 20% 20% 20% 20% 20%;
-    grid-template-rows: 20% 20% 20% 20% 20%;
-    grid-area: 1 / 1 / 6 /6;
-    background: linear-gradient(to bottom right, $dark-blue-green, $darkish-green);
-  }
-
-  .pcompheader {
+.pcompheader {
       color: $light-yellow;
       font-family: 'Roboto', sans-serif;
-  }
 
-  .inputtitle {
+}
+
+.inputtitle {
       font-size: 1rem;
       color: $light-yellow;
-      margin: 17px;
-  } 
+} 
 
-  .pcinput {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      width: 850px;
-  }
+.inputdiv {
+    grid-column: 3 / 5;
+    grid-row: 2;
+    padding: 5px;
+}
 
-  .custinput {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    width: 270px;
+.custinput {
+    grid-column: 5 / 7;
+    grid-row: 2;
+    padding: 5px;
 }
 
 .centbuton {
-    display: grid;
-    grid-column: 3;
-    grid-row: 3;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    grid-column: 3 / 7;
+    grid-row: 3 / 4;
 }
 
-.barchart {
+.chartdiv {
+    background-color: white;
     display: grid;
-    grid-area: 4 / 2 / 6 / 5;
-}
-
-.revbox {
-    font-size: 1rem;
-    color: $light-yellow;
-    margin: 17px;
+    grid-column: 2 / 8;
+    grid-row: 4 / 6;
     border-radius: 5px;
-    background: linear-gradient(to bottom right, $dark-blue, $dark-blue-green);
-    padding: 14px;
-    margin: 5px;
 }
 
 .weightinput {
-    height: 31px;
+    height: 33px;
+    width: 18vw;
     border-radius: 4px;
     padding-left: 10px;
     font-size: .75rem;
+    border: none;
 }
 
 .leftpanel {
     grid-column: 1;
-    grid-row: 2;
-    left: 150px;
-    top: 200px;
-    display: grid;
+    grid-row: 2 / 5;
+    display: flex;
     flex-direction: column;
     justify-content: space-around;
+    align-items: center;
 }
 
-  button {
+.revtext {
+    background: linear-gradient(to bottom right, $dark-blue-green, $dark-blue);
+    color: #F0F3BD;
+    border-radius: 5px;
+    height: 51px;
+    width: 550px;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    border: #F0F3BD;
+    text-align: left;
+    padding-left: 30px;
+}
+  
+.revtext span {
+    display: inline-block;
+    position: relative;
+}
+
+button {
     background: linear-gradient(to bottom right, #00A896, #02C39A);
     color: #F0F3BD;
     border-radius: 5px;
-    margin: 12px;
     height: 51px;
     font-size: 1rem;
     font-family: 'Roboto', sans-serif;
     border: #F0F3BD;
-  }
+}
   
-  button span {
+button span {
     cursor: pointer;
     display: inline-block;
     position: relative;
     transition: 0.5s;
-  }
+}
   
-  button span:after {
+button span:after {
     content: '\00bb';
     position: absolute;
     opacity: 0;
     top: 0;
     right: -20px;
     transition: 0.5s;
-  }
+}
   
-  button:hover span {
+button:hover span {
     padding-right: 25px;
-  }
+}
   
-  button:hover span:after {
+button:hover span:after {
     opacity: 1;
     right: 0;
-  }
+}
