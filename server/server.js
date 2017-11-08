@@ -51,7 +51,7 @@ passport.use(new Auth0Strategy({
 
 app.get('/auth', passport.authenticate('auth0'));
 app.get('/auth/callback', passport.authenticate('auth0', {
-    successRedirect: 'http://localhost:3000/#/profitcomparison',
+    successRedirect: '/#/profitcomparison',
     failureRedirect: '/auth'
 }))
 
@@ -64,7 +64,7 @@ app.get('/auth/me', (req, res) => {
 
 app.get('/auth/logout', (req, res) => {
     req.logOut();
-    res.redirect(302, 'http://localhost:3000/#/');
+    res.redirect(302, '/#/');
 })
 
 // Endpoints for airline management.
