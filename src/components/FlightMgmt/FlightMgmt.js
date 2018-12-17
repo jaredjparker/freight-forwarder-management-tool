@@ -35,7 +35,7 @@ class FlightMgmt extends Component {
         <div className='airlinemheader'>
           <img src={logo} alt="" />
           <h1 className='airlinemh'>Flight Management</h1>
-          <a href='http://localhost:3005/auth/logout'><button className='bton'><span>Log out</span></button></a>
+          <a href='../Login'><button className='bton'><span>Log out</span></button></a>
         </div>
         <div className='airmgmtleftpanel'>
           <Link to='/profitcomparison'>

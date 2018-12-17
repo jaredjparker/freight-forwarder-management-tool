@@ -57,7 +57,7 @@ class CustomerUpdate extends Component {
                 <div className='custupheader'>
                     <img src={logo} alt="" />
                     <p>Customer Update View</p>
-                    <a href='http://localhost:3005/auth/logout'><button className='btn'><span>Log out</span></button></a>
+                    <a href='../Login'><button className='btn'><span>Log out</span></button></a>
                 </div>
                 <div className='buttonandinput'>
                     <div className='selectupdatebox'>

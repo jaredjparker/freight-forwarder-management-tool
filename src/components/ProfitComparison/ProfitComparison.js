@@ -93,7 +93,7 @@ class ProfitComparison extends Component {
                 <div className='profitheader'>
                     <img src={logo} alt="" />
                     <h1 className='pcompheader'>Profit Comparison</h1>
-                    <a href='http://localhost:3005/auth/logout'><button><span>Log out</span></button></a>
+                    <a href='../Login'><button><span>Log out</span></button></a>
                 </div>
                 <div className='leftpanel'>
                     <Link to='/airlinemgmt'>

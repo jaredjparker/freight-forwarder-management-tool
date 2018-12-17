@@ -35,7 +35,7 @@ class AirlineRecord extends Component {
                 <div className='airrecheader'>
                     <img src={logo} alt="" />
                     <h1 className='airrectitle'>Airline Record View</h1>
-                    <a href='http://localhost:3005/auth/logout'><button className='bton'><span>Log out</span></button></a>
+                    <a href='../Login'><button className='bton'><span>Log out</span></button></a>
                 </div>
                 <div>
                     <div className='airrecleftpanel'>
