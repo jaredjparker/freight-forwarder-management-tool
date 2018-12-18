@@ -37,7 +37,7 @@ class CustomerMgmt extends Component {
         <div className='airheader'>
           <img src={logo} alt="" />
           <h2>Customer Management</h2>
-          <a href='../Login'><button className='btn'><span>Log out</span></button></a>
+          <a href={process.env.REACT_APP_LOGOUT}><button className='btn'><span>Log out</span></button></a>
         </div>
         <div className='sbox'>
           <Link to='/dashboard'>

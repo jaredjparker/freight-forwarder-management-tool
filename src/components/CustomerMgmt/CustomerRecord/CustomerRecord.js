@@ -21,7 +21,7 @@ class CustomerRecord extends Component {
                 <div className='recheader'>
                     <img src={logo} alt="" />
                     <p>Customer Record View</p>
-                    <a href='../Login'><button className='btn'><span>Log out</span></button></a>
+                    <a href={process.env.REACT_APP_LOGOUT}><button className='btn'><span>Log out</span></button></a>
                 </div>
                 <div className='barbox'>
                     <div className='tocolumn'>

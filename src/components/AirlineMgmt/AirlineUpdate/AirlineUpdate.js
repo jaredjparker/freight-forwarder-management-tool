@@ -47,7 +47,7 @@ class AirlineUpdate extends Component {
                 <div className='airupheader'>
                     <img src={logo} alt="" />
                     <h1 className='airuptitle'>Airline Update View</h1>
-                    <a href='../Login'><button className='bton'><span>Log out</span></button></a>
+                    <a href={process.env.REACT_APP_LOGOUT}><button className='bton'><span>Log out</span></button></a>
                 </div>
                 <div className='airupleftpanel'>
                     <Link to='/airlinemgmt'>

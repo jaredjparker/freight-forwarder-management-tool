@@ -25,7 +25,7 @@ class Dashboard extends Component {
         <div className='dashHeader'>
           <img src={logo} alt="" />
           <h1 className='dashtitle'>Dashboard</h1>
-          <a href='../Login'><button><span>Log out</span></button></a>
+          <a href={process.env.REACT_APP_LOGOUT}><button><span>Log out</span></button></a>
         </div>
         <div className='selectbar'>
           <div className='selectbox'>

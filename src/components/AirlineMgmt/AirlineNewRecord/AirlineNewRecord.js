@@ -47,7 +47,7 @@ class AirlineNewRecord extends Component {
                 <div className='airnewrecheader'>
                     <img src={logo} alt="" />
                     <h1 className='airnewtitle'>Airline New Record View</h1>
-                    <a href='../Login'><button className='bton'><span>Log out</span></button></a>
+                    <a href={process.env.REACT_APP_LOGOUT}><button className='bton'><span>Log out</span></button></a>
                 </div>
                 <div className='barbox'>
                     <div className='selectbox'>

@@ -36,7 +36,7 @@ class AirlineMgmt extends Component {
         <div className='airlinemheader'>
           <img src={logo} alt="" />
           <h1 className='airlinemh'>Airline Management</h1>
-          <a href='../Login'><button className='bton'><span>Log out</span></button></a>
+          <a href={process.env.REACT_APP_LOGOUT}><button className='bton'><span>Log out</span></button></a>
         </div>
         <div className='airmgmtleftpanel'>
           <Link to='/profitcomparison'>
